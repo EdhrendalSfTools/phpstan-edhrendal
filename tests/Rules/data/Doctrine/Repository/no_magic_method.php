@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Edhrendal\PHPStan\Rules\Doctrine\Repository\data;
+namespace Tests\EdhrendalSfTools\PHPStan\Rules\Doctrine\Repository\data;
 
 use Doctrine\ORM\EntityRepository;
 

@@ -1,6 +1,6 @@
 services:
     -
-        class: Edhrendal\PHPStan\Rules\Doctrine\Repository\NoRepositoryMagicMethodRule
+        class: EdhrendalSfTools\PHPStan\Rules\Doctrine\Repository\NoRepositoryMagicMethodRule
         arguments:
             strict: %edhrendal.doctrine.repository.strict%
         tags:

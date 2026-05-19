@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Edhrendal\PHPStan\Tests\Rules\Doctrine\Repository;
+namespace EdhrendalSfTools\PHPStan\Tests\Rules\Doctrine\Repository;
 
-use Edhrendal\PHPStan\Rules\Doctrine\Repository\NoRepositoryMagicMethodRule;
+use EdhrendalSfTools\PHPStan\Rules\Doctrine\Repository\NoRepositoryMagicMethodRule;
 use PHPStan\Reflection\ReflectionProvider;
 use PHPStan\Rules\Rule;
 use PHPStan\Testing\RuleTestCase;

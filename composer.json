@@ -1,5 +1,5 @@
 {
-    "name": "edhrendal/phpstan-edhrendal",
+    "name": "edhrendal-sf-tools/phpstan-edhrendal",
     "description": "PHPStan custom rules for Edhrendal projects",
     "license": "MIT",
     "type": "phpstan-extension",
@@ -20,12 +20,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Edhrendal\\PHPStan\\": "src/"
+            "EdhrendalSfTools\\PHPStan\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Edhrendal\\PHPStan\\Tests\\": "tests/"
+            "EdhrendalSfTools\\PHPStan\\Tests\\": "tests/"
         },
         "classmap": [
             "tests/Rules/data/"

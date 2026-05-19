@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Edhrendal\PHPStan\Rules\Doctrine\Repository;
+namespace EdhrendalSfTools\PHPStan\Rules\Doctrine\Repository;
 
 use PhpParser\Node;
 use PHPStan\Analyser\Scope;
@@ -27,7 +27,7 @@ use PHPStan\Rules\RuleErrorBuilder;
  * This rule is opt-in. Include it explicitly in your phpstan.neon:
  * ```neon
  * includes:
- *     - vendor/edhrendal/phpstan-edhrendal/rules/doctrine/no-repository-magic-method.neon
+ *     - vendor/edhrendal-sf-tools/phpstan-edhrendal/rules/doctrine/no-repository-magic-method.neon
  *
  * parameters:
  *     edhrendal:

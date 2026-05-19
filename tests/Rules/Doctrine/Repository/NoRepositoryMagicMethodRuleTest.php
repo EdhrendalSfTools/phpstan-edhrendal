@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Edhrendal\PHPStan\Tests\Rules\Doctrine\Repository;
+namespace EdhrendalSfTools\PHPStan\Tests\Rules\Doctrine\Repository;
 
-use Edhrendal\PHPStan\Rules\Doctrine\Repository\NoRepositoryMagicMethodRule;
+use EdhrendalSfTools\PHPStan\Rules\Doctrine\Repository\NoRepositoryMagicMethodRule;
 use PHPStan\Reflection\ReflectionProvider;
 use PHPStan\Rules\Rule;
 use PHPStan\Testing\RuleTestCase;
@@ -39,15 +39,15 @@ final class NoRepositoryMagicMethodRuleTest extends RuleTestCase
                     27,
                 ],
                 [
-                    'Magic method findByUsername() is not explicitly defined in Tests\Edhrendal\PHPStan\Rules\Doctrine\Repository\data\UserRepository. Create an explicit method in the repository instead of relying on Doctrine magic.',
+                    'Magic method findByUsername() is not explicitly defined in Tests\EdhrendalSfTools\PHPStan\Rules\Doctrine\Repository\data\UserRepository. Create an explicit method in the repository instead of relying on Doctrine magic.',
                     28,
                 ],
                 [
-                    'Magic method findByEmail() is not explicitly defined in Tests\Edhrendal\PHPStan\Rules\Doctrine\Repository\data\UserRepository. Create an explicit method in the repository instead of relying on Doctrine magic.',
+                    'Magic method findByEmail() is not explicitly defined in Tests\EdhrendalSfTools\PHPStan\Rules\Doctrine\Repository\data\UserRepository. Create an explicit method in the repository instead of relying on Doctrine magic.',
                     29,
                 ],
                 [
-                    'Magic method findOneByEmail() is not explicitly defined in Tests\Edhrendal\PHPStan\Rules\Doctrine\Repository\data\UserRepository. Create an explicit method in the repository instead of relying on Doctrine magic.',
+                    'Magic method findOneByEmail() is not explicitly defined in Tests\EdhrendalSfTools\PHPStan\Rules\Doctrine\Repository\data\UserRepository. Create an explicit method in the repository instead of relying on Doctrine magic.',
                     30,
                 ],
             ]

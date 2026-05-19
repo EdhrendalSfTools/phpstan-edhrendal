@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-This is a PHPStan extension package (`edhrendal/phpstan-edhrendal`) providing custom static analysis rules for Edhrendal projects. It targets PHP 8.5+ and PHPStan 2.x.
+This is a PHPStan extension package (`edhrendal-sf-tools/phpstan-edhrendal`) providing custom static analysis rules for Edhrendal projects. It targets PHP 8.5+ and PHPStan 2.x.
 
 ## Commands
 
