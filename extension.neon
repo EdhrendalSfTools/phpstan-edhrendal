@@ -1,0 +1,7 @@
+services:
+    # Register your rules here
+    # Example:
+    # -
+    #     class: Edhrendal\PHPStan\Rules\MyCustomRule
+    #     tags:
+    #         - phpstan.rules.rule
