@@ -1,7 +1,5 @@
-services:
-    # Register your rules here
-    # Example:
-    # -
-    #     class: Edhrendal\PHPStan\Rules\MyCustomRule
-    #     tags:
-    #         - phpstan.rules.rule
+# Auto-loaded by PHPStan via composer.json extra.phpstan.includes.
+# Rules are opt-in — include them explicitly in your phpstan.neon:
+#
+#   includes:
+#       - vendor/edhrendal/phpstan-edhrendal/rules/doctrine/no-repository-magic-method.neon

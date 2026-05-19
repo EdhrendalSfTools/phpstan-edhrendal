@@ -11,6 +11,7 @@
     ],
     "require": {
         "php": ">=8.5",
+        "ext-ctype": "*",
         "phpstan/phpstan": "~2.1.0"
     },
     "require-dev": {
@@ -25,7 +26,10 @@
     "autoload-dev": {
         "psr-4": {
             "Edhrendal\\PHPStan\\Tests\\": "tests/"
-        }
+        },
+        "classmap": [
+            "tests/Rules/data/"
+        ]
     },
     "config": {
         "sort-packages": true
