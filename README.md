@@ -40,6 +40,8 @@ composer require edhrendal-sf-tools/phpstan-edhrendal
 
 ## Available Rules
 
+---
+
 ### `NoRepositoryMagicMethodRule` — Doctrine
 
 Forbids the use of generic and magic Doctrine repository methods in favor of explicit, named methods declared directly in the repository class.
@@ -92,4 +94,82 @@ $this->userRepository->findByEmail($email);
 // ✅ ok
 $this->userRepository->findActive();
 $this->userRepository->findOneByEmail($email); // if declared in the class
+```
+
+---
+
+### `ControllerInvokableRule` — Symfony
+
+Enforces structural and naming conventions on Symfony controllers.
+
+**Always reported:**
+
+| Violation               | Description                                                                                     |
+|-------------------------|-------------------------------------------------------------------------------------------------|
+| Bad naming              | Class name does not follow `{Domain}{HttpMethod}Controller` (e.g. `PeriodeCalculGetController`) |
+| Missing `__invoke()`    | Controller does not declare a `__invoke()` method                                               |
+| Public non-magic method | Controller declares a public method other than magic ones (those starting with `__`)            |
+| Root placement          | Controller sits directly under the `Controller` namespace segment without a sub-namespace       |
+
+Recognised HTTP methods: `Get`, `Post`, `Put`, `Patch`, `Delete`, `Head`, `Options`, `Connect`, `Trace`, `Any`.
+
+**Include:**
+
+```neon
+# phpstan.neon
+includes:
+    - vendor/edhrendal-sf-tools/phpstan-edhrendal/rules/symfony/controller-invokable.neon
+```
+
+**Parameters (optional):**
+
+```neon
+# phpstan.neon
+includes:
+    - vendor/edhrendal-sf-tools/phpstan-edhrendal/rules/symfony/controller-invokable.neon
+
+parameters:
+    edhrendal:
+        symfony:
+            controller:
+                rootAllowedDomains:       # default: [index, home] — case-insensitive
+                    - index
+                    - home
+                    - dashboard           # add any domain used for your index page
+                excludedClassesFile: null # path to a PHP file returning string[] of FQCNs
+```
+
+The `excludedClassesFile` is a PHP file that returns an array of fully-qualified class names to skip entirely. Changes (additions, removals) are picked up on the next PHPStan run without recompilation:
+
+```php
+// config/phpstan/excluded_controllers.php
+<?php
+return [
+    App\Controller\Legacy\SomeLegacyController::class,
+];
+```
+
+```neon
+parameters:
+    edhrendal:
+        symfony:
+            controller:
+                excludedClassesFile: '%rootDir%/config/phpstan/excluded_controllers.php'
+```
+
+**Example — before / after:**
+
+```php
+// ❌ reported — missing HTTP method in name, no __invoke, public non-magic method
+class UserController
+{
+    public function index(): Response { … }
+    public function show(int $id): Response { … }
+}
+
+// ✅ ok
+class UserGetController
+{
+    public function __invoke(int $id): Response { … }
+}
 ```
