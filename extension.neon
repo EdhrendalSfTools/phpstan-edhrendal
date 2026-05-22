@@ -2,4 +2,43 @@
 # Rules are opt-in — include them explicitly in your phpstan.neon:
 #
 #   includes:
-#       - vendor/edhrendal/phpstan-edhrendal/rules/doctrine/no-repository-magic-method.neon
+#       - vendor/edhrendal-sf-tools/phpstan-edhrendal/rules/doctrine/no-repository-magic-method.neon
+#       - vendor/edhrendal-sf-tools/phpstan-edhrendal/rules/php/named-arguments.neon
+#       - vendor/edhrendal-sf-tools/phpstan-edhrendal/rules/symfony/controller-invokable.neon
+
+parametersSchema:
+    edhrendal: structure([
+        doctrine: structure([
+            repository: structure([
+                strict: bool()
+            ])
+        ])
+        php: structure([
+            namedArguments: structure([
+                forceNamed: bool()
+                forceSingleRequired: bool()
+            ])
+        ])
+        symfony: structure([
+            controller: structure([
+                rootAllowedDomains: listOf(string())
+                excludedClassesFile: schema(string(), nullable())
+            ])
+        ])
+    ])
+
+parameters:
+    edhrendal:
+        doctrine:
+            repository:
+                strict: false
+        php:
+            namedArguments:
+                forceNamed: true
+                forceSingleRequired: false
+        symfony:
+            controller:
+                rootAllowedDomains:
+                    - index
+                    - home
+                excludedClassesFile: null

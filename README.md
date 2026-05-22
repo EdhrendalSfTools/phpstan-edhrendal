@@ -38,6 +38,41 @@ Rules are **opt-in** — none are active by default. Include only the ones you n
 composer require edhrendal-sf-tools/phpstan-edhrendal
 ```
 
+## Usage
+
+`extension.neon` is auto-loaded by PHPStan via `extra.phpstan.includes` in `composer.json`. It defines the full configuration schema and default values for all rules — you do not need to include it manually.
+
+Each rule is opt-in. Include only the ones you need:
+
+```neon
+# phpstan.neon
+includes:
+    - vendor/edhrendal-sf-tools/phpstan-edhrendal/rules/doctrine/no-repository-magic-method.neon
+    - vendor/edhrendal-sf-tools/phpstan-edhrendal/rules/php/named-arguments.neon
+    - vendor/edhrendal-sf-tools/phpstan-edhrendal/rules/symfony/controller-invokable.neon
+```
+
+All parameters have sensible defaults. Override only what differs from the defaults:
+
+```neon
+# phpstan.neon
+includes:
+    - vendor/edhrendal-sf-tools/phpstan-edhrendal/rules/doctrine/no-repository-magic-method.neon
+    - vendor/edhrendal-sf-tools/phpstan-edhrendal/rules/symfony/controller-invokable.neon
+
+parameters:
+    edhrendal:
+        doctrine:
+            repository:
+                strict: true
+        symfony:
+            controller:
+                rootAllowedDomains:
+                    - index
+                    - home
+                    - dashboard
+```
+
 ## Available Rules
 
 ---

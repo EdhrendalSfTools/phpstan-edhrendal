@@ -6,22 +6,3 @@ services:
             excludedClassesFile: %edhrendal.symfony.controller.excludedClassesFile%
         tags:
             - phpstan.rules.rule
-
-parametersSchema:
-    edhrendal: structure([
-        symfony: structure([
-            controller: structure([
-                rootAllowedDomains: listOf(string())
-                excludedClassesFile: schema(string(), nullable())
-            ])
-        ])
-    ])
-
-parameters:
-    edhrendal:
-        symfony:
-            controller:
-                rootAllowedDomains:
-                    - index
-                    - home
-                excludedClassesFile: null

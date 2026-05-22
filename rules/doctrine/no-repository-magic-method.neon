@@ -5,18 +5,3 @@ services:
             strict: %edhrendal.doctrine.repository.strict%
         tags:
             - phpstan.rules.rule
-
-parametersSchema:
-    edhrendal: structure([
-        doctrine: structure([
-            repository: structure([
-                strict: bool()
-            ])
-        ])
-    ])
-
-parameters:
-    edhrendal:
-        doctrine:
-            repository:
-                strict: false
